@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>customCursor</title>
+    <style>
+        * {padding:0;margin:0;}
+        :root { /*global variables*/
+            --main: #bba2ff;
+            --text: skyblue;
+        }
+        body {cursor:none}
+        .cursor {
+            width: 3rem;
+            height: 3rem;
+            border: 2px solid var(--main); /*use variables*/
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1000;
+            transform: translate(-50%, -50%);
+            pointer-events: none; /*click event none*/
+            transition: all 0.3s ease;
+            transition-property: background, transform;
+            transform-origin: 100% 100%;
+            backdrop-filter: sepia(20%);
+            background-size: cover;
+        }
+
+        :root {
+            --mainColor: skyblue;
+            --textColor: #666;
+        }
+        .wrap {
+            --textColor: red;
+        }
+        .text {
+            color: var(--textColor);
+            background-color: var(--mainColor);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="cursor"></div> <!-- custom cursor -->
+    <nav>
+        <ul class="gnb">
+            <li><a href="#">Menu01</a></li>
+            <li><a href="#">Menu02</a></li>
+            <li><a href="#">Menu03</a></li>
+            <li><a href="#">Menu04</a></li>
+        </ul>
+    </nav>
+
+    <div class="wrap">
+        <p class="text">hello</p> <!--color: red-->
+    </div>
+    <p class="text">hello</p> <!--color: #666-->
+</header>
+
+<script>
+    document.getElementById("demo").style.cursor = "pointer";
+</script>
+</body>
+</html>
